@@ -22,8 +22,8 @@ $wallet->read("/path/to/wallet.dat");
 // check if wallet is encrypted
 if ($wallet->isEncrypted()) {
  
-    // get wallet master key
-    echo $wallet->getMasterKey()->getEncryptedKey();
+    // print wallet master key
+    echo $wallet->getMasterKey()->getEncryptedKey() . "\n";
      
     // decrypt wallet
     $wallet->decrypt("password");

@@ -78,6 +78,7 @@ class MasterKey
         $public = $encryptedKey->getPublicKey()->getHex();
         $master = substr(bin2hex($this->getEncryptedKey()), -64); // last two aes blocks should be enough
         $salt = bin2hex($this->getSalt());
+
         return sprintf('$bitcoin$%d$%s$%d$%s$%d$%d$%s$%d$%s',
             strlen($master),
             $master,

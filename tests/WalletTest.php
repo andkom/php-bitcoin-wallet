@@ -14,7 +14,9 @@ class WalletTest extends TestCase
         $wallet = new Wallet();
         $wallet->read(__DIR__ . '/data/wallet.dat');
 
-        $key = array_first($wallet->getKeys());
+        $keys = $wallet->getKeys();
+
+        $key = \reset($keys);
 
         $this->assertEquals($key->getPrivateKey()->toWif(), 'L1uaD1GSyvL78gRkBgMggLSUYkMrULFVGeS9wTxhLcBJN83HYRF3');
         $this->assertEquals($key->getPublicKey()->getAddress()->getAddress(), '16nxVXYNE8jyBjNtEpVJ2GA5mhJczsrQVa');
@@ -25,7 +27,8 @@ class WalletTest extends TestCase
         $wallet = new Wallet();
         $wallet->read(__DIR__ . '/data/wallet_encrypted.dat');
 
-        $key = array_last($wallet->getKeys());
+        $keys = $wallet->getKeys();
+        $key = \end($keys);
         $mk = $wallet->getMasterKey();
 
         $this->assertEquals(bin2hex($mk->getEncryptedKey()), '80bb7a5985fd80e71c4b7f1601ce8fd7681a195c345695c6e87396eb7f8aefbf4e098ed009a42a173bd6db863c24d464');
@@ -41,7 +44,8 @@ class WalletTest extends TestCase
         $wallet->read(__DIR__ . '/data/wallet_encrypted.dat');
         $wallet->decrypt('test');
 
-        $key = array_first($wallet->getKeys());
+        $keys = $wallet->getKeys();
+        $key = \reset($keys);
 
         $this->assertEquals($key->getPrivateKey()->toWif(), 'Kz1MJgnRAmUoeWq6gVwEmeCy1ykKPjNbDK9bcDbCUMipSLMKnwrm');
         $this->assertEquals($key->getPublicKey()->getAddress()->getAddress(), '1Gh5nEM4gjkWZYXFWXzMbquwzSDgiBF1dE');
