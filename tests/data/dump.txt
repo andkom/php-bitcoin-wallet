@@ -1,0 +1,22 @@
+# Wallet dump created by Bitcoin v0.16.1
+# * Created on 2018-07-17T11:30:29Z
+# * Best block at time of backup was 217034 (00000000000003241560fdb63666869a94eaa812e11679b29af265f1bb6a361c),
+#   mined on 2013-01-18T16:32:05Z
+
+# extended private masterkey: xprv9s21ZrQH143K2Vg1aS8WmfyW5czp9MdELEcEiMvhASomQvyzs3SeZHJoe4gbJPA4NjPBf23aAdtkNqcNDu87eRjVWUExoZLRoTcGMFxjMs2
+
+L1zh3RoMsiQGbvTHkkfW7Xf3Shs6Udy9ToPrmRmufXLFQ4F5rH9J 2018-07-17T11:26:28Z inactivehdmaster=1 # addr=3JGw5GYp4XxM4uCLNjvTakNSzTdjtgp62d hdkeypath=m
+L1uaD1GSyvL78gRkBgMggLSUYkMrULFVGeS9wTxhLcBJN83HYRF3 2018-07-17T11:26:29Z change=1 # addr=3FQnnDzRBvg2Cztpxf2H2rmenDxSVbyGkX hdkeypath=m/0'/1'/0'
+L4rSveM7cUAQ5L4VBpdsZLPTiRqZA5fBKwS9trQ1GCaMfN37vjXq 2018-07-17T11:26:29Z label= # addr=3QiWVmnYvdQsi9wpr7q6SrxHnus4kzpGyV hdkeypath=m/0'/0'/0'
+L3CP9hcf9pGQAzDcTQkQciC4BemJZNfKHmoMpDT5pFHJMrgyCwYg 2018-07-17T11:27:37Z hdmaster=1 # addr=3218hGJYVVQVLEx5xx4tp54UcyHhy3c7Bn hdkeypath=m
+L1ynb1hj75g22cRrh3sdeM7qCrj9JyUhzumxpkP81tXaDu1k9f6b 2018-07-17T11:27:37Z reserve=1 # addr=3LSu8Q77FYQYhv3qfCwNskJyF9Nr3yHRAf hdkeypath=m/0'/1'/0'
+Kz1MJgnRAmUoeWq6gVwEmeCy1ykKPjNbDK9bcDbCUMipSLMKnwrm 2018-07-17T11:27:37Z reserve=1 # addr=3AvFhTs3fE1GjPk3y5uPADFiWJqaXpVrUz hdkeypath=m/0'/0'/0'
+
+001454793058198501aa07faee3be72baeed94ff1d0c 0 script=1 # addr=3218hGJYVVQVLEx5xx4tp54UcyHhy3c7Bn
+0014ac1e83e60984cbd690d3b439f37cff88c38413e7 0 script=1 # addr=3AvFhTs3fE1GjPk3y5uPADFiWJqaXpVrUz
+00143f89ab613c2e51e0254513e1b3305dab0be0a8a4 0 script=1 # addr=3FQnnDzRBvg2Cztpxf2H2rmenDxSVbyGkX
+00141d22bac0cdb3d678f2d98739013429262a383bc9 0 script=1 # addr=3JGw5GYp4XxM4uCLNjvTakNSzTdjtgp62d
+001498833b7e4f9f2e7b422fd78bc8e65df18e924548 0 script=1 # addr=3LSu8Q77FYQYhv3qfCwNskJyF9Nr3yHRAf
+0014d60d71564d95e944cf45c63afedb6a74e24e8120 0 script=1 # addr=3QiWVmnYvdQsi9wpr7q6SrxHnus4kzpGyV
+
+# End of dump
