@@ -15,7 +15,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "bitwasp/bitcoin": "^0.0.30",
+    "bitwasp/bitcoin": "~0.0.34",
     "andkom/php-berkeley-db": "^1.0.0"
   },
   "require-dev": {
