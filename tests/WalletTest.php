@@ -19,7 +19,7 @@ class WalletTest extends TestCase
         $key = \reset($keys);
 
         $this->assertEquals($key->getPrivateKey()->toWif(), 'L1uaD1GSyvL78gRkBgMggLSUYkMrULFVGeS9wTxhLcBJN83HYRF3');
-        $this->assertEquals($key->getPublicKey()->getAddress()->getAddress(), '16nxVXYNE8jyBjNtEpVJ2GA5mhJczsrQVa');
+        $this->assertEquals($key->getPublicKey()->getPubKeyHash()->getHex(), '3f89ab613c2e51e0254513e1b3305dab0be0a8a4');
     }
 
     public function testMasterKey()
@@ -48,7 +48,7 @@ class WalletTest extends TestCase
         $key = \reset($keys);
 
         $this->assertEquals($key->getPrivateKey()->toWif(), 'Kz1MJgnRAmUoeWq6gVwEmeCy1ykKPjNbDK9bcDbCUMipSLMKnwrm');
-        $this->assertEquals($key->getPublicKey()->getAddress()->getAddress(), '1Gh5nEM4gjkWZYXFWXzMbquwzSDgiBF1dE');
+        $this->assertEquals($key->getPublicKey()->getPubKeyHash()->getHex(), 'ac1e83e60984cbd690d3b439f37cff88c38413e7');
     }
 
     public function testVersion()

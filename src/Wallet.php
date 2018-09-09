@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AndKom\PhpBitcoinWallet;
 
+use AndKom\BCDataStream\Reader;
 use AndKom\PhpBerkeleyDb\Adapter\AdapterFactory;
 use AndKom\PhpBerkeleyDb\Adapter\AdapterInterface;
 use AndKom\PhpBerkeleyDb\Exception as DbException;
@@ -11,7 +12,6 @@ use AndKom\PhpBitcoinWallet\Item\EncryptedKey;
 use AndKom\PhpBitcoinWallet\Item\ItemFactory;
 use AndKom\PhpBitcoinWallet\Item\Key;
 use AndKom\PhpBitcoinWallet\Item\MasterKey;
-use AndKom\PhpBitcoinWallet\Item\Version;
 
 /**
  * Class Wallet
@@ -40,7 +40,7 @@ class Wallet
     protected $masterKey;
 
     /**
-     * @var arary
+     * @var array
      */
     protected $attributes = [];
 
@@ -93,8 +93,8 @@ class Wallet
         $this->masterKey;
 
         foreach ($this->adapter->read() as $key => $value) {
-            $kds = new BCDataStream($key);
-            $vds = new BCDataStream($value);
+            $kds = new Reader($key);
+            $vds = new Reader($value);
 
             $type = $kds->readString();
 

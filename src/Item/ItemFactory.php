@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace AndKom\PhpBitcoinWallet\Item;
 
+use AndKom\BCDataStream\Reader;
+use AndKom\BCDataStream\Writer;
 use AndKom\PhpBerkeleyDb\Adapter\AdapterInterface;
-use AndKom\PhpBitcoinWallet\BCDataStream;
 
 /**
  * Class ItemFactory
@@ -28,12 +29,12 @@ class ItemFactory
     }
 
     /**
-     * @param BCDataStream $kds
-     * @param BCDataStream $vds
+     * @param Reader $kds
+     * @param Reader $vds
      * @return Key
      * @throws \AndKom\PhpBerkeleyDb\Exception
      */
-    public function createKey(BCDataStream $kds, BCDataStream $vds): Key
+    public function createKey(Reader $kds, Reader $vds): Key
     {
         $public = $kds->readString();
         $private = $vds->readString();
@@ -42,12 +43,12 @@ class ItemFactory
     }
 
     /**
-     * @param BCDataStream $kds
-     * @param BCDataStream $vds
+     * @param Reader $kds
+     * @param Reader $vds
      * @return EncryptedKey
      * @throws \AndKom\PhpBerkeleyDb\Exception
      */
-    public function createEncryptedKey(BCDataStream $kds, BCDataStream $vds): EncryptedKey
+    public function createEncryptedKey(Reader $kds, Reader $vds): EncryptedKey
     {
         $public = $kds->readString();
         $encrypted = $vds->readString();
@@ -56,12 +57,12 @@ class ItemFactory
     }
 
     /**
-     * @param BCDataStream $kds
-     * @param BCDataStream $vds
+     * @param Reader $kds
+     * @param Reader $vds
      * @return WKey
      * @throws \AndKom\PhpBerkeleyDb\Exception
      */
-    public function createWKey(BCDataStream $kds, BCDataStream $vds): WKey
+    public function createWKey(Reader $kds, Reader $vds): WKey
     {
         $public = $kds->readString();
         $private = $vds->readString();
@@ -74,11 +75,11 @@ class ItemFactory
     }
 
     /**
-     * @param BCDataStream $kds
-     * @param BCDataStream $vds
+     * @param Reader $kds
+     * @param Reader $vds
      * @return MasterKey
      */
-    public function createMasterKey(BCDataStream $kds, BCDataStream $vds): MasterKey
+    public function createMasterKey(Reader $kds, Reader $vds): MasterKey
     {
         return new MasterKey([
             'nId' => $kds->readUInt32(),
@@ -91,10 +92,10 @@ class ItemFactory
     }
 
     /**
-     * @param BCDataStream $vds
+     * @param Reader $vds
      * @return KeyMeta
      */
-    public function createKeyMeta(BCDataStream $vds): KeyMeta
+    public function createKeyMeta(Reader $vds): KeyMeta
     {
         $attributes = [
             'nVersion' => $version = $vds->readInt32(),
@@ -116,7 +117,7 @@ class ItemFactory
      */
     public function getKeyMeta(string $public): ?KeyMeta
     {
-        $key = (new BCDataStream())
+        $key = (new Writer())
             ->writeString('keymeta')
             ->writeString($public)
             ->getBuffer();
@@ -127,6 +128,6 @@ class ItemFactory
             return null;
         }
 
-        return $this->createKeyMeta(new BCDataStream($value));
+        return $this->createKeyMeta(new Reader($value));
     }
 }
