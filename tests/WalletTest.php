@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Tests;
+namespace AndKom\Bitcoin\Wallet\Tests;
 
-use AndKom\PhpBitcoinWallet\Wallet;
+use AndKom\Bitcoin\Wallet\Wallet;
 use PHPUnit\Framework\TestCase;
 
 class WalletTest extends TestCase

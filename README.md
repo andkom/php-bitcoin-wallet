@@ -13,7 +13,7 @@ composer require andkom/php-bitcoin-wallet
 ```PHP
 <?php
 
-use AndKom\PhpBitcoinWallet\Wallet;
+use AndKom\Bitcoin\Wallet\Wallet;
  
 // create wallet instance
 $wallet = new Wallet();

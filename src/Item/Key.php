@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
-use AndKom\PhpBitcoinWallet\Exception;
+use AndKom\Bitcoin\Wallet\Exception;
 use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PrivateKeyInterface;
 use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PublicKeyInterface;
 use BitWasp\Bitcoin\Key\PrivateKeyFactory;
@@ -12,7 +12,7 @@ use BitWasp\Bitcoin\Key\PublicKeyFactory;
 
 /**
  * Class Key
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class Key
 {

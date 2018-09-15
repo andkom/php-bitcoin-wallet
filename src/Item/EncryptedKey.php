@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
-use AndKom\PhpBitcoinWallet\Crypter;
-use AndKom\PhpBitcoinWallet\Exception;
+use AndKom\Bitcoin\Wallet\Crypter;
+use AndKom\Bitcoin\Wallet\Exception;
 use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PrivateKeyInterface;
 
 /**
  * Class EncryptedKey
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class EncryptedKey extends Key
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet;
+namespace AndKom\Bitcoin\Wallet;
 
 /**
  * Class Exception
- * @package AndKom\PhpBitcoinWallet
+ * @package AndKom\Bitcoin\Wallet
  */
 class Exception extends \Exception
 {

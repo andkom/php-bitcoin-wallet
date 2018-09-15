@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
-use AndKom\PhpBitcoinWallet\Crypter;
+use AndKom\Bitcoin\Wallet\Crypter;
 
 /**
  * Class MasterKey
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class MasterKey
 {
@@ -70,7 +70,7 @@ class MasterKey
      * Returns master key hash for hashcat.
      * @param EncryptedKey $encryptedKey
      * @return string
-     * @throws \AndKom\PhpBitcoinWallet\Exception
+     * @throws \AndKom\Bitcoin\Wallet\Exception
      */
     public function getHash(EncryptedKey $encryptedKey): string
     {
@@ -94,7 +94,7 @@ class MasterKey
     /**
      * @param string $passphrase
      * @return string
-     * @throws \AndKom\PhpBitcoinWallet\Exception
+     * @throws \AndKom\Bitcoin\Wallet\Exception
      */
     public function decrypt(string $passphrase): string
     {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
-use AndKom\PhpBitcoinWallet\Exception;
+use AndKom\Bitcoin\Wallet\Exception;
 
 /**
  * Class KeyMeta
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class KeyMeta
 {

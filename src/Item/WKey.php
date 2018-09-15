@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
 /**
  * Class WKey
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class WKey extends Key
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet\Item;
+namespace AndKom\Bitcoin\Wallet\Item;
 
 use AndKom\BCDataStream\Reader;
 use AndKom\BCDataStream\Writer;
-use AndKom\PhpBerkeleyDb\Adapter\AdapterInterface;
+use AndKom\BerkeleyDb\Adapter\AdapterInterface;
 
 /**
  * Class ItemFactory
- * @package AndKom\PhpBitcoinWallet\Item
+ * @package AndKom\Bitcoin\Wallet\Item
  */
 class ItemFactory
 {
@@ -32,7 +32,7 @@ class ItemFactory
      * @param Reader $kds
      * @param Reader $vds
      * @return Key
-     * @throws \AndKom\PhpBerkeleyDb\Exception
+     * @throws \AndKom\BerkeleyDb\Exception
      */
     public function createKey(Reader $kds, Reader $vds): Key
     {
@@ -46,7 +46,7 @@ class ItemFactory
      * @param Reader $kds
      * @param Reader $vds
      * @return EncryptedKey
-     * @throws \AndKom\PhpBerkeleyDb\Exception
+     * @throws \AndKom\BerkeleyDb\Exception
      */
     public function createEncryptedKey(Reader $kds, Reader $vds): EncryptedKey
     {
@@ -60,7 +60,7 @@ class ItemFactory
      * @param Reader $kds
      * @param Reader $vds
      * @return WKey
-     * @throws \AndKom\PhpBerkeleyDb\Exception
+     * @throws \AndKom\BerkeleyDb\Exception
      */
     public function createWKey(Reader $kds, Reader $vds): WKey
     {
@@ -113,7 +113,7 @@ class ItemFactory
     /**
      * @param string $public
      * @return KeyMeta|null
-     * @throws \AndKom\PhpBerkeleyDb\Exception
+     * @throws \AndKom\BerkeleyDb\Exception
      */
     public function getKeyMeta(string $public): ?KeyMeta
     {

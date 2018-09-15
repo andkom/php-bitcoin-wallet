@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace AndKom\PhpBitcoinWallet;
+namespace AndKom\Bitcoin\Wallet;
 
 use AndKom\BCDataStream\Reader;
-use AndKom\PhpBerkeleyDb\Adapter\AdapterFactory;
-use AndKom\PhpBerkeleyDb\Adapter\AdapterInterface;
-use AndKom\PhpBerkeleyDb\Exception as DbException;
-use AndKom\PhpBitcoinWallet\Item\EncryptedKey;
-use AndKom\PhpBitcoinWallet\Item\ItemFactory;
-use AndKom\PhpBitcoinWallet\Item\Key;
-use AndKom\PhpBitcoinWallet\Item\MasterKey;
+use AndKom\BerkeleyDb\Adapter\AdapterFactory;
+use AndKom\BerkeleyDb\Adapter\AdapterInterface;
+use AndKom\BerkeleyDb\Exception as DbException;
+use AndKom\Bitcoin\Wallet\Item\EncryptedKey;
+use AndKom\Bitcoin\Wallet\Item\ItemFactory;
+use AndKom\Bitcoin\Wallet\Item\Key;
+use AndKom\Bitcoin\Wallet\Item\MasterKey;
 
 /**
  * Class Wallet
- * @package AndKom\PhpBitcoinWallet
+ * @package AndKom\Bitcoin\Wallet
  */
 class Wallet
 {

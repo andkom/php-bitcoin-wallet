@@ -16,7 +16,7 @@
   "require": {
     "php": "^7.1",
     "bitwasp/bitcoin": "~0.0.34",
-    "andkom/php-berkeley-db": "^1.0.0",
+    "andkom/php-berkeley-db": "^1.1",
     "andkom/php-bcdatastream": "^1.1"
   },
   "require-dev": {
@@ -24,12 +24,12 @@
   },
   "autoload": {
     "psr-4": {
-      "AndKom\\PhpBitcoinWallet\\": "src/"
+      "AndKom\\Bitcoin\\Wallet\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "AndKom\\PhpBitcoinWallet\\Tests\\": "tests/"
+      "AndKom\\Bitcoin\\Wallet\\Tests\\": "tests/"
     }
   }
 }
