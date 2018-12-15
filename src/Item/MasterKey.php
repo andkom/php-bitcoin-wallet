@@ -75,7 +75,7 @@ class MasterKey
     public function getHash(EncryptedKey $encryptedKey): string
     {
         $encrypted = bin2hex($encryptedKey->getEncryptedPrivateKey());
-        $public = $encryptedKey->getPublicKey()->getHex();
+        $public = bin2hex($encryptedKey->getPublicKey());
         $master = substr(bin2hex($this->getEncryptedKey()), -64); // last two aes blocks should be enough
         $salt = bin2hex($this->getSalt());
 

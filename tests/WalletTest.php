@@ -18,8 +18,8 @@ class WalletTest extends TestCase
 
         $key = \reset($keys);
 
-        $this->assertEquals($key->getPrivateKey()->toWif(), 'L1uaD1GSyvL78gRkBgMggLSUYkMrULFVGeS9wTxhLcBJN83HYRF3');
-        $this->assertEquals($key->getPublicKey()->getPubKeyHash()->getHex(), '3f89ab613c2e51e0254513e1b3305dab0be0a8a4');
+        $this->assertEquals(bin2hex($key->getPrivateKey()), '8bdb39c6f696408a4089a6b6d57007d58662f52bff0a609cdbca14baaa6c0563');
+        $this->assertEquals(bin2hex($key->getPublicKey()), '02d96817786139a4958a2affd281cbc791eec18877fbc7534fdb488e1be5bcbfd6');
     }
 
     public function testMasterKey()
@@ -47,8 +47,8 @@ class WalletTest extends TestCase
         $keys = $wallet->getKeys();
         $key = \reset($keys);
 
-        $this->assertEquals($key->getPrivateKey()->toWif(), 'Kz1MJgnRAmUoeWq6gVwEmeCy1ykKPjNbDK9bcDbCUMipSLMKnwrm');
-        $this->assertEquals($key->getPublicKey()->getPubKeyHash()->getHex(), 'ac1e83e60984cbd690d3b439f37cff88c38413e7');
+        $this->assertEquals(bin2hex($key->getPrivateKey()), '53275c0a5ebc3c5510ad3ca5a0a25568fb0a57428091610455d8afba2edfba57');
+        $this->assertEquals(bin2hex($key->getPublicKey()), '02c98bf925ccfa5e185380d90727358bffc1c7658feec95c30aab8afe20bdf428e');
     }
 
     public function testVersion()

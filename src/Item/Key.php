@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace AndKom\Bitcoin\Wallet\Item;
 
-use AndKom\Bitcoin\Wallet\Exception;
-use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PrivateKeyInterface;
-use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PublicKeyInterface;
-use BitWasp\Bitcoin\Key\PrivateKeyFactory;
-use BitWasp\Bitcoin\Key\PublicKeyFactory;
-
 /**
  * Class Key
  * @package AndKom\Bitcoin\Wallet\Item
@@ -26,12 +20,12 @@ class Key
     /**
      * @var string
      */
-    protected $private;
+    protected $secret;
 
     /**
      * @var string
      */
-    protected $secret;
+    protected $private;
 
     /**
      * @var KeyMeta
@@ -41,15 +35,14 @@ class Key
     /**
      * Key constructor.
      * @param string $public
-     * @param string $private
+     * @param string $secret
      * @param KeyMeta $meta
      */
-    public function __construct(string $public, string $private, KeyMeta $meta = null)
+    public function __construct(string $public, string $secret, KeyMeta $meta = null)
     {
         $this->public = $public;
-        $this->private = $private;
+        $this->secret = $secret;
         $this->meta = $meta;
-        $this->secret = $this->parseSecret($private);
     }
 
     /**
@@ -70,36 +63,22 @@ class Key
     }
 
     /**
-     * @return PublicKeyInterface
-     * @throws Exception
+     * @return string
      */
-    public function getPublicKey(): PublicKeyInterface
+    public function getPublicKey(): string
     {
-        $hex = bin2hex($this->public);
-
-        try {
-            $publicKey = PublicKeyFactory::fromHex($hex);
-        } catch (\Exception $exception) {
-            throw new Exception('Unable to decode public key: ' . $exception->getMessage());
-        }
-
-        return $publicKey;
+        return $this->public;
     }
 
     /**
-     * @return PrivateKeyInterface
-     * @throws Exception
+     * @return string
      */
-    public function getPrivateKey(): PrivateKeyInterface
+    public function getPrivateKey(): string
     {
-        $hex = bin2hex($this->secret);
-
-        try {
-            $privateKey = PrivateKeyFactory::fromHex($hex, $this->getPublicKey()->isCompressed());
-        } catch (\Exception $exception) {
-            throw new Exception('Unable to decode private key: ' . $exception->getMessage());
+        if (!$this->private) {
+            $this->private = $this->parseSecret($this->secret);
         }
 
-        return $privateKey;
+        return $this->private;
     }
 }

@@ -6,7 +6,6 @@ namespace AndKom\Bitcoin\Wallet\Item;
 
 use AndKom\Bitcoin\Wallet\Crypter;
 use AndKom\Bitcoin\Wallet\Exception;
-use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PrivateKeyInterface;
 
 /**
  * Class EncryptedKey
@@ -15,36 +14,18 @@ use BitWasp\Bitcoin\Crypto\EcAdapter\Key\PrivateKeyInterface;
 class EncryptedKey extends Key
 {
     /**
-     * @var string
-     */
-    protected $encrypted;
-
-    /**
-     * EncryptedKey constructor.
-     * @param string $public
-     * @param string $encrypted
-     * @param KeyMeta|null $meta
-     */
-    public function __construct(string $public, string $encrypted, KeyMeta $meta = null)
-    {
-        $this->public = $public;
-        $this->encrypted = $encrypted;
-        $this->meta = $meta;
-    }
-
-    /**
      * @return bool
      */
     public function isEncrypted(): bool
     {
-        return !$this->secret;
+        return !$this->private;
     }
 
     /**
-     * @return PrivateKeyInterface
+     * @return string
      * @throws Exception
      */
-    public function getPrivateKey(): PrivateKeyInterface
+    public function getPrivateKey(): string
     {
         if ($this->isEncrypted()) {
             throw new Exception('Private key is encrypted.');
@@ -58,16 +39,15 @@ class EncryptedKey extends Key
      */
     public function getEncryptedPrivateKey(): string
     {
-        return $this->encrypted;
+        return $this->secret;
     }
 
     /**
      * @return string
-     * @throws Exception
      */
     public function getIv(): string
     {
-        $hash = Crypter::hash($this->getPublicKey()->getBinary());
+        $hash = Crypter::hash($this->getPublicKey());
         $iv = substr($hash, 0, Crypter::WALLET_CRYPTO_IV_SIZE);
 
         return $iv;
@@ -81,7 +61,7 @@ class EncryptedKey extends Key
     public function decrypt(string $masterKey): self
     {
         $crypter = new Crypter($masterKey, $this->getIv());
-        $this->secret = $crypter->decrypt($this->getEncryptedPrivateKey());
+        $this->private = $crypter->decrypt($this->getEncryptedPrivateKey());
 
         return $this;
     }
