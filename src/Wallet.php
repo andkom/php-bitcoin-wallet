@@ -96,7 +96,11 @@ class Wallet
             $kds = new Reader($key);
             $vds = new Reader($value);
 
-            $type = $kds->readString();
+            try {
+                $type = $kds->readString();
+            } catch (\Exception $exception) {
+                continue;
+            }
 
             switch ($type) {
                 case 'key':
