@@ -68,14 +68,13 @@ class MasterKey
 
     /**
      * Returns master key hash for hashcat.
-     * @param EncryptedKey $encryptedKey
+     * @param EncryptedKey|null $encryptedKey
      * @return string
-     * @throws \AndKom\Bitcoin\Wallet\Exception
      */
-    public function getHash(EncryptedKey $encryptedKey): string
+    public function getHash(EncryptedKey $encryptedKey = null): string
     {
-        $encrypted = bin2hex($encryptedKey->getEncryptedPrivateKey());
-        $public = bin2hex($encryptedKey->getPublicKey());
+        $encrypted = $encryptedKey ? bin2hex($encryptedKey->getEncryptedPrivateKey()) : '00';
+        $public = $encryptedKey ? bin2hex($encryptedKey->getPublicKey()) : '00';
         $master = substr(bin2hex($this->getEncryptedKey()), -64); // last two aes blocks should be enough
         $salt = bin2hex($this->getSalt());
 
